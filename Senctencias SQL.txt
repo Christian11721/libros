@@ -1,0 +1,41 @@
+CREATE TABLE autores (
+    id BEGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    pais VARCHAR(50),
+    edad int(2)
+);
+
+ALTER TABLE `autores` ADD FOREIGN KEY (`id`) REFERENCES `detalle_autores`(`autor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `autores` ADD FOREIGN KEY (`id`) REFERENCES `libros`(`autor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+CREATE TABLE libros (
+    id BEGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100),
+    a_publicacion INT(11),
+    lugar_edicion VARCHAR(100),
+    editorial VARCHAR(100),
+    paginas INT(4) 
+);
+
+
+CREATE TABLE detalle_autores (
+    id BEGINT  AUTO_INCREMENT PRIMARY KEY,
+    biografia VARCHAR(100),
+);
+
+
+
+CREATE TABLE generos ( 
+id BEGINT  AUTO_INCREMENT PRIMARY KEY, 
+nombre VARCHAR(50) 
+);
+
+
+
+CREATE TABLE genero_libros ( 
+id BEGINT  AUTO_INCREMENT PRIMARY KEY, 
+id_libro BEGINT,
+id_genero BEGINT 
+);
+ALTER TABLE `genero_libros` ADD FOREIGN KEY (`libro_id`) REFERENCES `libros`(`id`) ON DELETE CASCADE ON UPDATE CASCADE; 
+ALTER TABLE `genero_libros` ADD FOREIGN KEY (`genero_id`) REFERENCES `generos`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
