@@ -2,19 +2,12 @@
 include("conexion.php");
 $con = conectar();
 
-function obtenerNombreAutor($autor_id) {
-    global $con;
+$id = $_GET['id'];
 
-    $sql = "SELECT nombre FROM autores WHERE id='$autor_id'";
-    $resultado = mysqli_query($con, $sql);
-
-    if ($row = mysqli_fetch_array($resultado)) {
-        return $row['nombre'];
-    } 
-}
-
-$sql = "SELECT * FROM detalle_autores";
+$sql = "SELECT * FROM detalle_autores WHERE id='$id'";
 $query = mysqli_query($con, $sql);
+
+if ($row = mysqli_fetch_array($query)) 
 ?>
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
@@ -23,7 +16,7 @@ $query = mysqli_query($con, $sql);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Librería</title>
+    <title>Ver autor</title>
 
     <meta name="description" content="" />
 
@@ -127,12 +120,12 @@ $query = mysqli_query($con, $sql);
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index-peliculas.php" class="menu-link">
                                     <div data-i18n="Basic Inputs">Ver</div>
                                 </a>
                             </li>
                             <li class="menu-item active open">
-                                <a href="" class="menu-link">
+                                <a href="peliculas.php" class="menu-link">
                                     <div data-i18n="Input groups">Agregar</div>
                                 </a>
                             </li>
@@ -145,30 +138,12 @@ $query = mysqli_query($con, $sql);
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index-productores.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="" class="menu-link">
-                                    <div data-i18n="Horizontal Form">Agregar</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Layouts">Detalle de los autores</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="index_detalle_autores.php" class="menu-link">
-                                    <div data-i18n="Vertical Form">Ver</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="create_detalle_autores.php" class="menu-link">
+                                <a href="productores.php" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
@@ -177,16 +152,16 @@ $query = mysqli_query($con, $sql);
                     <li class="menu-item active open">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Layouts">Generos</div>
+                            <div data-i18n="Form Layouts">Detalle de los autores</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="form-layouts-vertical.html" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
-                            <li class="menu-item active open">
-                                <a href="" class="menu-link">
+                            <li class="menu-item">
+                                <a href="form-layouts-horizontal.html" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
@@ -195,16 +170,34 @@ $query = mysqli_query($con, $sql);
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Layouts">Generos y libros</div>
+                            <div data-i18n="Form Layouts">Generos</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="usuarios.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="agregar_usuario.php" class="menu-link">
+                                    <div data-i18n="Horizontal Form">Agregar</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-detail"></i>
+                            <div data-i18n="Form Layouts">Genero y libros</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="form-layouts-vertical.html" class="menu-link">
+                                    <div data-i18n="Vertical Form">Ver</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="form-layouts-horizontal.html" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
@@ -313,34 +306,33 @@ $query = mysqli_query($con, $sql);
                             <div class="col-xxl">
                                 <div class="card mb-4">
                                     <div class="card-header d-flex align-items-center justify-content-between">
-                                        <h5 class="mb-0">Agregar detalles</h5>
-                                        <form action="insertar_usuarios.php" method="POST">
+                                        <h5 class="mb-0">Detalles del autor</h5>
+                                        <form action="insert_detalle_autores.php" method="POST">
                                     </div>
                                     <div class="card-body">
                                         <form>
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label"  for="basic-default-name">Id</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="id" placeholder="" />
+                                                <span class="form-control"><?php echo $row['id']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label"  for="basic-default-name">Autor</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="autor_id" placeholder="" />
+                                                    <span class="form-control"><?php echo obtenerNombreAutor($row['autor_id']); ?></span>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label"  for="basic-default-name">Bigrafía</label>
+                                                <label class="col-sm-2 col-form-label"  for="basic-default-name">Biografía</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="biografia" placeholder=" " />
+                                                <span class="form-control"> <?php echo $row['biografia']; ?></span> 
                                                 </div>
                                             </div>
-                                            <div class="row justify-content-end">
-                                                <div class="col-sm-5">
-                                                    <button type="submit" class="btn btn-primary">Agregar</button>
-                                                </div>
-                                            </div>
+                                            <div class="text-center">
+                                            <a href="index_detalle_autores.php" class="btn btn-secondary">Cancelar</a>
+                                            <a href="update_detalle_autores.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Editar</a>
+                                        </div>
                                         </form>
                                     </div>
                                 </div>
@@ -395,5 +387,16 @@ $query = mysqli_query($con, $sql);
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+</html>
+<?php
+function obtenerNombreAutor($autor_id) {
+    global $con;
 
-</html>s
+    $sql = "SELECT nombre FROM autores WHERE id='$autor_id'";
+    $resultado = mysqli_query($con, $sql);
+
+    if ($row = mysqli_fetch_array($resultado)) {
+        return $row['nombre'];
+    }
+}
+?>

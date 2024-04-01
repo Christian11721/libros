@@ -23,7 +23,7 @@ $query = mysqli_query($con, $sql);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Librería</title>
+    <title>Detalle de los autores</title>
 
     <meta name="description" content="" />
 
@@ -37,6 +37,8 @@ $query = mysqli_query($con, $sql);
 
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="./assets/vendor/fonts/boxicons.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="./assets/vendor/css/core.css" class="template-customizer-core-css" />
@@ -118,7 +120,8 @@ $query = mysqli_query($con, $sql);
                         </a>
                     </li>
 
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Páginas</span>
+                    <li class="menu-header small text-uppercase">
+                    <span class="menu-header-text">Páginas</span>
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -127,12 +130,12 @@ $query = mysqli_query($con, $sql);
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index.php" class="menu-link">
                                     <div data-i18n="Basic Inputs">Ver</div>
                                 </a>
                             </li>
-                            <li class="menu-item active open">
-                                <a href="" class="menu-link">
+                            <li class="menu-item">
+                                <a href="create.php" class="menu-link">
                                     <div data-i18n="Input groups">Agregar</div>
                                 </a>
                             </li>
@@ -145,24 +148,24 @@ $query = mysqli_query($con, $sql);
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index_autores.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
                             <li class="menu-item ">
-                                <a href="" class="menu-link">
+                                <a href="create_autores.php" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item active open">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Form Layouts">Detalle de los autores</div>
                         </a>
                         <ul class="menu-sub">
-                            <li class="menu-item">
+                            <li class="menu-item active">
                                 <a href="index_detalle_autores.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
@@ -174,19 +177,19 @@ $query = mysqli_query($con, $sql);
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item active open">
+                    <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons bx bx-detail"></i>
                             <div data-i18n="Form Layouts">Generos</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index_generos.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
-                            <li class="menu-item active open">
-                                <a href="" class="menu-link">
+                            <li class="menu-item">
+                                <a href="create_generos.php" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
@@ -199,12 +202,12 @@ $query = mysqli_query($con, $sql);
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="index_genero_libros.php" class="menu-link">
                                     <div data-i18n="Vertical Form">Ver</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="" class="menu-link">
+                                <a href="create_genero_libros.php" class="menu-link">
                                     <div data-i18n="Horizontal Form">Agregar</div>
                                 </a>
                             </li>
@@ -212,7 +215,6 @@ $query = mysqli_query($con, $sql);
                     </li>
             </aside>
             <!-- / Menu -->
-
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
@@ -308,58 +310,45 @@ $query = mysqli_query($con, $sql);
                     <div class="container-xxl flex-grow-1 container-p-y">
 
                         <!-- Basic Layout & Basic with Icons -->
-                        <div class="row">
-                            <!-- Basic Layout -->
-                            <div class="col-xxl">
-                                <div class="card mb-4">
-                                    <div class="card-header d-flex align-items-center justify-content-between">
-                                        <h5 class="mb-0">Agregar detalles</h5>
-                                        <form action="insertar_usuarios.php" method="POST">
-                                    </div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label"  for="basic-default-name">Id</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="id" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label"  for="basic-default-name">Autor</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="autor_id" placeholder="" />
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label"  for="basic-default-name">Bigrafía</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="basic-default-name" name="biografia" placeholder=" " />
-                                                </div>
-                                            </div>
-                                            <div class="row justify-content-end">
-                                                <div class="col-sm-5">
-                                                    <button type="submit" class="btn btn-primary">Agregar</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Detalles de autores</h4>
+                            <div class="card">
 
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Autor</th>
+                                            <th scope="col">Biografía</th>
+                                            <th scope="col" colspan="2">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-border-bottom-0">
+
+                                            <?php while ($row = mysqli_fetch_array($query)) : ?>
+                                                <tr>
+                                                <td scope="row"><?php echo $row['id']; ?></td>
+                                                <td><?php echo obtenerNombreAutor($row['autor_id']); ?></td>
+                                                <td><?php echo $row['biografia']; ?></td>
+                                                <td><a href="show_detalle_autores.php?id=<?php echo $row['id']; ?>"><i class="bi bi-eye-fill"></i></a></td>
+                                                <td><a class="text-success" href="update_detalle_autores.php?id=<?php echo $row['id']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                                <td><a onclick="return confirm('¿Estás seguro de eliminar?');" class="text-danger" href="delete_detalle_autores.php?id=<?php echo $row['id']; ?>"><i class="bi bi-trash"></i></a></td>
+                                                </tr>
+                                            <?php endwhile; ?>
+                                        </tbody>
+                                </table>
                             </div>
                         </div>
-
+                        <a href="create_detalle_autores.php" class="btn btn-primary mt-3">Agregar detalles</a>
                     </div>
-                    </form>
                 </div>
+
             </div>
+            </form>
         </div>
     </div>
-    </div>
-    <!-- / Content -->
-
     <!-- Footer -->
-
-
 
     <div class="content-backdrop fade"></div>
     </div>
@@ -396,4 +385,4 @@ $query = mysqli_query($con, $sql);
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
-</html>s
+</html>
