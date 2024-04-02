@@ -2,7 +2,7 @@
 include("conexion.php");
 $con = conectar();
 
-function obtenerNombresAutores() {
+function obtenerNombresAutores() { //Extrae los nombres de los autores con el valor de sus nombres
     global $con; 
 
     $sql = "SELECT id, nombre FROM autores";

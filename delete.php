@@ -9,6 +9,5 @@ $query = mysqli_query($con, $sql);
 
 if($query){
     Header("Location: index.php");
-}else{  
-}
+}else
 ?>

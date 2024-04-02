@@ -11,6 +11,5 @@ $query = mysqli_query($con, $sql);
 
 if($query){
     Header("Location: index_detalle_autores.php");
-}else{
 }
 ?>

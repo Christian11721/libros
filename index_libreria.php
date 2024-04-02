@@ -253,7 +253,7 @@ $query = mysqli_query($con, $sql);
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">Crepusculo</span>
+                                                    <span class="fw-semibold d-block"></span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>

@@ -246,7 +246,7 @@ if ($row = mysqli_fetch_array($query))
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">Crepusculo</span>
+                                                    <span class="fw-semibold d-block"></span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
@@ -389,8 +389,8 @@ if ($row = mysqli_fetch_array($query))
 </body>
 </html>
 <?php
-function obtenerNombreAutor($autor_id) {
-    global $con;
+function obtenerNombreAutor($autor_id) { //Extrae los nombres de los autores con el valor de sus nombres
+    global $con; 
 
     $sql = "SELECT nombre FROM autores WHERE id='$autor_id'";
     $resultado = mysqli_query($con, $sql);

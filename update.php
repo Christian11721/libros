@@ -9,7 +9,7 @@ $query = mysqli_query($con, $sql);
 
 $row = mysqli_fetch_array($query);
 
-function obtenerNombresAutores() {
+function obtenerNombresAutores() { //Extrae los nombres de los autores con el valor de sus nombres
     global $con; 
 
     $sql = "SELECT id, nombre FROM autores";

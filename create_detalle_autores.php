@@ -242,7 +242,7 @@ $query = mysqli_query($con, $sql);
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">Crepusculo</span>
+                                                    <span class="fw-semibold d-block"></span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
@@ -338,7 +338,6 @@ $query = mysqli_query($con, $sql);
                         </div>
 
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -384,5 +383,4 @@ $query = mysqli_query($con, $sql);
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
-
-</html>s
+</html>
